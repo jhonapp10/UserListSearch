@@ -31,7 +31,7 @@ function UsersTable({users}: Props) {
               
               <tr>
                 <th>{user.fullName}</th>
-                <th>{user.birthday.toString()}</th>
+                <th>{user.birthday.toLocaleDateString()}</th>
                 <th>{user.profile}</th>
               </tr>
             )

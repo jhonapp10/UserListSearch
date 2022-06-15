@@ -15,6 +15,7 @@ interface User{
 }
 
 
+
 function App() {
   const [allUsers, setAllUsers] = useState<Array<User>>(users);
   const [selectedUsers, setSelectedUsers] = useState<Array<User>>([]);
@@ -43,10 +44,26 @@ function App() {
   
   function onSubmit2 (event:React.SyntheticEvent<HTMLFormElement>) {
     
-    event.preventDefault()
-
+    event.preventDefault();
+    let findUser = allUsers;   
     
-    const findUser = allUsers.filter(u => u.fullName === fullName || u.profile ===profile );
+    if (fullName){
+       findUser = allUsers.filter(u => u.fullName.toLowerCase().includes(fullName)); 
+    }
+    if (profile){
+      findUser = allUsers.filter(u => u.profile === profile);
+    }
+
+
+    if (dateFrom){
+      findUser = allUsers.filter(u=> u.birthday.toISOString() === dateFrom);
+    }
+    
+    if (dateTo){
+      findUser = allUsers.filter(u=> u.birthday.toISOString() === dateTo);
+    }
+    
+
 
     setLoad(true);
 

@@ -192,6 +192,12 @@ button {
 button:hover {
   background: #ff9800;
 }
+
+th{
+  text-align: center;
+  border: solid 2px;
+  border-radius: 20px;
+}
 @media (min-width: 568px) {
   .name-item,
   .city-item {
